@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Gerald Dube | IT / System Integration Aspirant</title>
+    <title>Gerald Musawenkosi Dube | IT / System Integration Aspirant</title>
 
     <meta name="description"
-          content="Gerald Dube - IT / System Integration Aspirant. Portfolio showcasing Windows Server, Active Directory, networking, Linux and Python projects.">
+          content="Gerald Musawenkosi Dube - IT / System Integration Aspirant building practical skills in Windows Server, Active Directory, networking, Linux administration and IT infrastructure.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -319,31 +319,6 @@
                 #06101e;
         }
 
-        /*
-           PHOTO PLACEHOLDER
-
-           Later, replace the GD text with your actual picture.
-
-           Example:
-
-           <img src="gerald-photo.jpg" alt="Gerald Dube">
-
-           The CSS for the image is already included below.
-        */
-
-        .profile-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 75px;
-            font-weight: 800;
-            color: #1683ff;
-            background:
-                radial-gradient(circle at 50% 40%, rgba(22,131,255,.20), transparent 45%);
-        }
-
         .profile-ring img {
             width: 100%;
             height: 100%;
@@ -386,7 +361,7 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 27px;
         }
 
@@ -458,8 +433,28 @@
             font-size: 49px;
         }
 
-        .python-icon {
-            font-size: 49px;
+        .icon-server,
+        .icon-network,
+        .icon-terminal {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+        }
+
+        .icon-server {
+            font-size: 42px;
+        }
+
+        .icon-network {
+            font-size: 48px;
+            transform: rotate(90deg);
+        }
+
+        .icon-terminal {
+            font-family: "Courier New", monospace;
+            font-size: 30px;
+            letter-spacing: -2px;
         }
 
         .project-card h3 {
@@ -809,6 +804,7 @@
             color: #b9cbe0;
             font-size: 12px;
         }
+
         /* =========================================================
            PROJECT SCREENSHOTS
         ========================================================= */
@@ -885,18 +881,6 @@
             line-height: 1.55;
         }
 
-        @media (max-width: 700px) {
-
-            .screenshot-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .screenshot-card img {
-                height: auto;
-                max-height: 300px;
-            }
-
-        }
         /* =========================================================
            FOOTER
         ========================================================= */
@@ -996,6 +980,18 @@
             }
         }
 
+        @media (max-width: 700px) {
+
+            .screenshot-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .screenshot-card img {
+                height: auto;
+                max-height: 300px;
+            }
+        }
+
         @media (max-width: 600px) {
 
             .projects-grid {
@@ -1031,104 +1027,61 @@
                 padding: 22px 16px;
             }
         }
-/* =========================================================
-   FULL-SCREEN PROJECT IMAGE VIEWER
-========================================================= */
 
-.image-viewer {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.92);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.25s ease;
-    z-index: 9999;
-}
+        /* =========================================================
+           FULL-SCREEN PROJECT IMAGE VIEWER
+        ========================================================= */
 
-.image-viewer.active {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
+        .image-viewer {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+            z-index: 9999;
+        }
 
-.image-viewer img {
-    max-width: 95%;
-    max-height: 90vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    border-radius: 6px;
-    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.6);
-}
+        .image-viewer.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
 
-.image-close {
-    position: absolute;
-    top: 18px;
-    right: 28px;
-    width: 45px;
-    height: 45px;
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 42px;
-    line-height: 1;
-    cursor: pointer;
-    z-index: 10000;
-}
+        .image-viewer img {
+            max-width: 95%;
+            max-height: 90vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 6px;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.6);
+        }
 
-.image-close:hover {
-    opacity: 0.7;
-}
+        .image-close {
+            position: absolute;
+            top: 18px;
+            right: 28px;
+            width: 45px;
+            height: 45px;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 42px;
+            line-height: 1;
+            cursor: pointer;
+            z-index: 10000;
+        }
 
-.screenshot-card img {
-    cursor: zoom-in;
-}
-/* =========================================================
-   PROJECT ICONS
-========================================================= */
+        .image-close:hover {
+            opacity: 0.7;
+        }
 
-.project-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: Arial, sans-serif;
-}
-
-.icon-server,
-.icon-network,
-.icon-terminal,
-.icon-python {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-}
-
-.icon-server {
-    font-size: 42px;
-}
-
-.icon-network {
-    font-size: 48px;
-    transform: rotate(90deg);
-}
-
-.icon-terminal {
-    font-family: "Courier New", monospace;
-    font-size: 30px;
-    letter-spacing: -2px;
-}
-
-.icon-python {
-    font-family: "Courier New", monospace;
-    font-size: 27px;
-    letter-spacing: -2px;
-}
     </style>
 </head>
 
@@ -1156,7 +1109,6 @@
 
         </a>
 
-
         <nav>
 
             <a href="#home" class="active">Home</a>
@@ -1170,7 +1122,6 @@
             <a href="#contact">Contact</a>
 
         </nav>
-
 
         <a href="#" class="cv-button" onclick="downloadCV(event)">
             Download CV ↓
@@ -1206,9 +1157,8 @@
                 for building reliable systems and solving real-world problems
                 through technology.<br>
 
-                I enjoy working with servers, networks, automation and infrastructure.
+                I enjoy working with servers, networks and IT infrastructure.
             </p>
-
 
             <div class="hero-buttons">
 
@@ -1222,17 +1172,18 @@
 
             </div>
 
-
             <div class="socials">
 
                 <a href="https://github.com/geraldDube041"
                    target="_blank"
+                   rel="noopener noreferrer"
                    title="GitHub">
                     GH
                 </a>
 
                 <a href="https://www.linkedin.com/in/gerald-dube"
                    target="_blank"
+                   rel="noopener noreferrer"
                    title="LinkedIn">
                     in
                 </a>
@@ -1253,26 +1204,14 @@
 
             <div class="profile-ring">
 
-                <!--
-                    YOUR PHOTO GOES HERE LATER.
+                <img src="images/gerald-photo.jpg"
+                     alt="Gerald Musawenkosi Dube">
 
-                    Replace the following div with:
+            </div>
 
-                    <img src="gerald-photo.jpg"
-                         alt="Gerald Dube">
+        </div>
 
-                    Keep the image in the same folder as index.html.
-                -->
-
-                
-                    
-                
-
-            <img src="images/gerald-photo.jpg" alt="Gerald Dube">
-
-        
-
-    
+    </div>
 
 </section>
 
@@ -1290,7 +1229,6 @@
             MY PROJECTS
         </h2>
 
-
         <div class="projects-grid">
 
 
@@ -1302,16 +1240,16 @@
                     COMPLETED
                 </span>
 
-               <div class="project-icon windows-icon">
-    <span class="icon-server">▣</span>
-</div>
+                <div class="project-icon windows-icon">
+                    <span class="icon-server">▣</span>
+                </div>
 
                 <h3>
                     Windows Server &amp; Active Directory
                 </h3>
 
                 <p>
-                    Deployed and configured a Windows Server domain environment
+                    Built and configured a Windows Server domain environment
                     with Active Directory, DNS, DHCP, Group Policy, users,
                     groups and security policies.
                 </p>
@@ -1334,9 +1272,9 @@
                     COMING SOON
                 </span>
 
-               <div class="project-icon network-icon">
-    <span class="icon-network">⌁</span>
-</div>
+                <div class="project-icon network-icon">
+                    <span class="icon-network">⌁</span>
+                </div>
 
                 <h3>
                     Network Infrastructure Lab
@@ -1345,7 +1283,7 @@
                 <p>
                     Designing and implementing a simulated network infrastructure
                     using routers, switches, VLANs, IP addressing and routing
-                    protocols.
+                    concepts.
                 </p>
 
                 <button class="project-button disabled">
@@ -1364,46 +1302,17 @@
                     COMING SOON
                 </span>
 
-              <div class="project-icon linux-icon">
-    <span class="icon-terminal">&gt;_</span>
-</div>
+                <div class="project-icon linux-icon">
+                    <span class="icon-terminal">&gt;_</span>
+                </div>
 
                 <h3>
                     Linux Server Administration
                 </h3>
 
                 <p>
-                    Building Linux server skills by installing and managing
-                    services such as SSH, DNS, DHCP and file servers.
-                </p>
-
-                <button class="project-button disabled">
-                    View Project →
-                </button>
-
-            </article>
-
-
-
-            <!-- PYTHON -->
-
-            <article class="project-card">
-
-                <span class="status">
-                    COMING SOON
-                </span>
-
-               <div class="project-icon python-icon">
-    <span class="icon-python">{ }</span>
-</div>
-
-                <h3>
-                    Python Automation
-                </h3>
-
-                <p>
-                    Creating Python automation scripts to streamline repetitive
-                    tasks, system monitoring and report generation.
+                    Building Linux server administration skills by installing
+                    and managing services such as SSH, DNS, DHCP and file servers.
                 </p>
 
                 <button class="project-button disabled">
@@ -1541,8 +1450,8 @@
 
 
         <p class="contact-description">
-            I'm always open to discussing IT opportunities,
-            collaborations and new ideas.
+            I'm open to discussing IT opportunities, collaborations,
+            entry-level roles and Ausbildung opportunities.
         </p>
 
 
@@ -1569,7 +1478,8 @@
                 </span>
 
                 <a href="https://www.linkedin.com/in/gerald-dube"
-                   target="_blank">
+                   target="_blank"
+                   rel="noopener noreferrer">
 
                     linkedin.com/in/gerald-dube ↗
 
@@ -1585,7 +1495,8 @@
                 </span>
 
                 <a href="https://github.com/geraldDube041"
-                   target="_blank">
+                   target="_blank"
+                   rel="noopener noreferrer">
 
                     github.com/geraldDube041 ↗
 
@@ -1633,8 +1544,8 @@
             <p>
                 My current portfolio includes a completed Windows Server
                 and Active Directory lab, with additional projects in
-                networking, Linux administration and Python automation
-                planned as I continue developing my technical skills.
+                networking and Linux server administration planned as I
+                continue developing my technical skills.
             </p>
 
 
@@ -1669,11 +1580,11 @@
                 </span>
 
                 <span class="skill">
-                    Python
+                    Hardware &amp; PC Support
                 </span>
 
                 <span class="skill">
-                    IT Support
+                    IT Support Fundamentals
                 </span>
 
             </div>
@@ -1711,431 +1622,432 @@
 
         <div class="project-overview">
 
-           Built and configured a Windows Server lab environment using
-Active Directory Domain Services. The project included server
-configuration, Organizational Units, user and group management,
-password and account lockout policies, DNS and DHCP services,
-domain-joining a Windows client, and testing domain authentication.
+            Built and configured a Windows Server lab environment using
+            Active Directory Domain Services. The project included server
+            configuration, Organizational Units, user and group management,
+            password and account lockout policies, DNS and DHCP services,
+            domain-joining a Windows client, and testing domain authentication.
 
         </div>
 
 
-       <div class="technical-grid">
+        <div class="technical-grid">
 
 
-    <div class="technical-item">
+            <div class="technical-item">
 
-        <h4>
-            01 — Server Manager Dashboard
-        </h4>
+                <h4>
+                    01 — Server Manager Dashboard
+                </h4>
 
-        <p>
-            Used Server Manager to manage the Windows Server environment
-            and review the installed server roles and services.
-        </p>
-
-    </div>
-
-
-    <div class="technical-item">
-
-        <h4>
-            02 — Local Server Configuration
-        </h4>
-
-        <p>
-            Configured the server's local system and networking settings
-            as part of the Windows Server domain infrastructure.
-        </p>
-
-    </div>
-
-
-    <div class="technical-item">
-
-        <h4>
-            03 — Organizational Units
-        </h4>
-
-        <p>
-            Created and organised Organizational Units to provide a
-            structured way of managing directory objects.
-        </p>
-
-    </div>
-
-
-    <div class="technical-item">
-
-        <h4>
-            04 — Users &amp; Groups
-        </h4>
-
-        <p>
-            Created and managed user accounts and security groups within
-            the Active Directory environment.
-        </p>
-
-    </div>
-
-
-    <div class="technical-item">
-
-        <h4>
-            05 — Password Policy
-        </h4>
-
-        <p>
-            Configured domain password policy settings to demonstrate
-            basic account security and authentication requirements.
-        </p>
-
-    </div>
-
-
-    <div class="technical-item">
-
-        <h4>
-            06 — Account Lockout Policy
-        </h4>
-
-        <p>
-            Configured account lockout settings to help protect domain
-            accounts against repeated unsuccessful authentication attempts.
-        </p>
-
-    </div>
-
-
-    <div class="technical-item">
-
-        <h4>
-            07 — DHCP
-        </h4>
-
-        <p>
-            Configured DHCP services to provide network addressing and
-            configuration to client machines within the lab environment.
-        </p>
-
-    </div>
-
-
-    <div class="technical-item">
-
-        <h4>
-            08 — DNS
-        </h4>
-
-        <p>
-            Configured and tested DNS to support domain name resolution
-            within the Windows Server and Active Directory environment.
-        </p>
-
-    </div>
-
-
-    <div class="technical-item">
-
-        <h4>
-            09 — Domain-Joined Client
-        </h4>
-
-        <p>
-            Configured a Windows client machine and successfully connected
-            it to the gerrytech.com domain.
-        </p>
-
-    </div>
-
-
-    <div class="technical-item">
-
-        <h4>
-            10 — Domain Login
-        </h4>
-
-        <p>
-            Tested domain authentication by signing into the client using
-            an Active Directory domain account.
-        </p>
-
-    </div>
-
-
-</div>
-
-       <div class="screenshots-section">
-
-    <h3 class="screenshots-title">
-        PROJECT DOCUMENTATION
-    </h3>
-
-    <p class="screenshots-intro">
-        Screenshots from the completed Windows Server and Active Directory
-        lab, documenting the configuration and testing process.
-    </p>
-
-
-    <div class="screenshot-grid">
-
-
-        <div class="screenshot-card">
-
-           <img src="images/01-server-manager-dashboard.png"
-     alt="Windows Server Manager Dashboard"
-     onclick="openImage(this.src)">
-      
-
-            <div class="screenshot-caption">
-
-                <span>01</span>
-
-                <div>
-                    <h4>Server Manager</h4>
-
-                    <p>
-                        Windows Server management dashboard used to
-                        manage installed roles and server services.
-                    </p>
-                </div>
+                <p>
+                    Used Server Manager to manage the Windows Server environment
+                    and review the installed server roles and services.
+                </p>
 
             </div>
 
-        </div>
 
+            <div class="technical-item">
 
+                <h4>
+                    02 — Local Server Configuration
+                </h4>
 
-        <div class="screenshot-card">
-
-           <img src="images/02-local-server-configuration.png"
-     alt="Local Server Configuration"
-     onclick="openImage(this.src)">
-
-            <div class="screenshot-caption">
-
-                <span>02</span>
-
-                <div>
-                    <h4>Local Server Configuration</h4>
-
-                    <p>
-                        Server configuration and networking settings
-                        used to prepare the infrastructure.
-                    </p>
-                </div>
+                <p>
+                    Configured the server's local system and networking settings
+                    as part of the Windows Server domain infrastructure.
+                </p>
 
             </div>
 
-        </div>
 
+            <div class="technical-item">
 
+                <h4>
+                    03 — Organizational Units
+                </h4>
 
-        <div class="screenshot-card">
-
-         <img src="images/03-organizational-units.png"
-     alt="Organizational Units"
-     onclick="openImage(this.src)">
-   
-
-            <div class="screenshot-caption">
-
-                <span>03</span>
-
-                <div>
-                    <h4>Organizational Units</h4>
-
-                    <p>
-                        Active Directory Users and Computers showing
-                        the domain environment.
-                    </p>
-                </div>
+                <p>
+                    Created and organised Organizational Units to provide a
+                    structured way of managing directory objects.
+                </p>
 
             </div>
 
-        </div>
 
+            <div class="technical-item">
 
+                <h4>
+                    04 — Users &amp; Groups
+                </h4>
 
-        <div class="screenshot-card">
-
-           <img src="images/04-users-and-groups.png"
-     alt="Users and Groups"
-     onclick="openImage(this.src)">
-
-
-            <div class="screenshot-caption">
-
-                <span>04</span>
-
-                <div>
-                    <h4>Users &amp; Groups</h4>
-
-                    <p>
-                        Structured Organizational Units created for
-                        centralised management of directory objects.
-                    </p>
-                </div>
+                <p>
+                    Created and managed user accounts and security groups within
+                    the Active Directory environment.
+                </p>
 
             </div>
 
-        </div>
 
+            <div class="technical-item">
 
+                <h4>
+                    05 — Password Policy
+                </h4>
 
-        <div class="screenshot-card">
-
-         <img src="images/05-password-policy.png"
-     alt="Password Policy"
-     onclick="openImage(this.src)">
-
-            <div class="screenshot-caption">
-
-                <span>05</span>
-
-                <div>
-                    <h4>Password Policy</h4>
-
-                    <p>
-                        User accounts and security groups created and
-                        managed within Active Directory.
-                    </p>
-                </div>
+                <p>
+                    Configured domain password policy settings to demonstrate
+                    basic account security and authentication requirements.
+                </p>
 
             </div>
 
-        </div>
 
+            <div class="technical-item">
 
+                <h4>
+                    06 — Account Lockout Policy
+                </h4>
 
-        <div class="screenshot-card">
-
-            <img src="images/06-account-lockout-policy.png"
-     alt="Account Lockout Policy"
-     onclick="openImage(this.src)">
-
-            <div class="screenshot-caption">
-
-                <span>06</span>
-
-                <div>
-                    <h4>Account Lockout Policy</h4>
-
-                    <p>
-                        Group Policy Management used for centralised
-                        domain administration and policy configuration.
-                    </p>
-                </div>
+                <p>
+                    Configured account lockout settings to help protect domain
+                    accounts against repeated unsuccessful authentication attempts.
+                </p>
 
             </div>
 
-        </div>
 
+            <div class="technical-item">
 
+                <h4>
+                    07 — DHCP
+                </h4>
 
-        <div class="screenshot-card">
-
-            <img src="images/07-dhcp.png"
-     alt="DHCP Configuration"
-     onclick="openImage(this.src)">
-
-            <div class="screenshot-caption">
-
-                <span>07</span>
-
-                <div>
-                  <h4>DHCP</h4>
-
-                    <p>
-                        DNS configuration and testing supporting
-                        domain name resolution.
-                    </p>
-                </div>
+                <p>
+                    Configured DHCP services to provide network addressing and
+                    configuration to client machines within the lab environment.
+                </p>
 
             </div>
 
-        </div>
 
+            <div class="technical-item">
 
+                <h4>
+                    08 — DNS
+                </h4>
 
-        <div class="screenshot-card">
-
-            <img src="images/08-dns.png"
-     alt="DNS Configuration"
-     onclick="openImage(this.src)">
-
-
-            <div class="screenshot-caption">
-
-                <span>08</span>
-
-                <div>
-                 <h4>DNS</h4>
-
-                    <p>
-                        DHCP service configured to provide network
-                        addressing to client machines.
-                    </p>
-                </div>
+                <p>
+                    Configured and tested DNS to support domain name resolution
+                    within the Windows Server and Active Directory environment.
+                </p>
 
             </div>
 
-        </div>
 
+            <div class="technical-item">
 
+                <h4>
+                    09 — Domain-Joined Client
+                </h4>
 
-        <div class="screenshot-card">
-
-           <img src="images/09-domain-client.png"
-     alt="Domain Joined Client"
-     onclick="openImage(this.src)">
-
-            <div class="screenshot-caption">
-
-                <span>09</span>
-
-                <div>
-                    <h4>Domain-Joined Client</h4>
-
-                    <p>
-                        Windows client configured and joined to the
-                        gerrytech.com domain.
-                    </p>
-                </div>
+                <p>
+                    Configured a Windows client machine and connected it to the
+                    gerrytech.com domain.
+                </p>
 
             </div>
 
-        </div>
 
+            <div class="technical-item">
 
+                <h4>
+                    10 — Domain Login
+                </h4>
 
-        <div class="screenshot-card">
-
-           <img src="images/10-domain-login.png"
-     alt="Domain Login"
-     onclick="openImage(this.src)">
-
-            <div class="screenshot-caption">
-
-                <span>10</span>
-
-                <div>
-                    <h4>Domain Login</h4>
-
-                    <p>
-                        Successful authentication using an
-                        Active Directory domain account.
-                    </p>
-                </div>
+                <p>
+                    Tested domain authentication by signing into the client using
+                    an Active Directory domain account.
+                </p>
 
             </div>
 
+
         </div>
 
 
-    </div>
+        <!-- =====================================================
+             SCREENSHOTS
+        ===================================================== -->
 
-</div>
+        <div class="screenshots-section">
+
+            <h3 class="screenshots-title">
+                PROJECT DOCUMENTATION
+            </h3>
+
+            <p class="screenshots-intro">
+                Screenshots from the completed Windows Server and Active Directory
+                lab, documenting the configuration and testing process.
+            </p>
+
+
+            <div class="screenshot-grid">
+
+
+                <div class="screenshot-card">
+
+                    <img src="images/01-server-manager-dashboard.png"
+                         alt="Windows Server Manager Dashboard"
+                         onclick="openImage(this.src)">
+
+                    <div class="screenshot-caption">
+
+                        <span>01</span>
+
+                        <div>
+                            <h4>Server Manager</h4>
+
+                            <p>
+                                Windows Server management dashboard used to
+                                manage installed roles and server services.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="screenshot-card">
+
+                    <img src="images/02-local-server-configuration.png"
+                         alt="Windows Server Local Server Configuration"
+                         onclick="openImage(this.src)">
+
+                    <div class="screenshot-caption">
+
+                        <span>02</span>
+
+                        <div>
+                            <h4>Local Server Configuration</h4>
+
+                            <p>
+                                Server configuration and networking settings
+                                used to prepare the infrastructure.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="screenshot-card">
+
+                    <img src="images/03-organizational-units.png"
+                         alt="Active Directory Organizational Units"
+                         onclick="openImage(this.src)">
+
+                    <div class="screenshot-caption">
+
+                        <span>03</span>
+
+                        <div>
+                            <h4>Organizational Units</h4>
+
+                            <p>
+                                Active Directory structure showing the
+                                organisational units created for the lab.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="screenshot-card">
+
+                    <img src="images/04-users-and-groups.png"
+                         alt="Active Directory Users and Groups"
+                         onclick="openImage(this.src)">
+
+                    <div class="screenshot-caption">
+
+                        <span>04</span>
+
+                        <div>
+                            <h4>Users &amp; Groups</h4>
+
+                            <p>
+                                User accounts and security groups created and
+                                managed within Active Directory.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="screenshot-card">
+
+                    <img src="images/05-password-policy.png"
+                         alt="Windows Server Password Policy"
+                         onclick="openImage(this.src)">
+
+                    <div class="screenshot-caption">
+
+                        <span>05</span>
+
+                        <div>
+                            <h4>Password Policy</h4>
+
+                            <p>
+                                Domain password policy settings configured
+                                to demonstrate basic account security.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="screenshot-card">
+
+                    <img src="images/06-account-lockout-policy.png"
+                         alt="Windows Server Account Lockout Policy"
+                         onclick="openImage(this.src)">
+
+                    <div class="screenshot-caption">
+
+                        <span>06</span>
+
+                        <div>
+                            <h4>Account Lockout Policy</h4>
+
+                            <p>
+                                Account lockout settings configured to help
+                                protect domain accounts from repeated failed
+                                authentication attempts.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="screenshot-card">
+
+                    <img src="images/07-dhcp.png"
+                         alt="Windows Server DHCP Configuration"
+                         onclick="openImage(this.src)">
+
+                    <div class="screenshot-caption">
+
+                        <span>07</span>
+
+                        <div>
+                            <h4>DHCP</h4>
+
+                            <p>
+                                DHCP service configured to provide network
+                                addressing and configuration to client machines.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="screenshot-card">
+
+                    <img src="images/08-dns.png"
+                         alt="Windows Server DNS Configuration"
+                         onclick="openImage(this.src)">
+
+                    <div class="screenshot-caption">
+
+                        <span>08</span>
+
+                        <div>
+                            <h4>DNS</h4>
+
+                            <p>
+                                DNS configuration and testing supporting
+                                domain name resolution within the lab.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="screenshot-card">
+
+                    <img src="images/09-domain-client.png"
+                         alt="Windows Client Joined to Active Directory Domain"
+                         onclick="openImage(this.src)">
+
+                    <div class="screenshot-caption">
+
+                        <span>09</span>
+
+                        <div>
+                            <h4>Domain-Joined Client</h4>
+
+                            <p>
+                                Windows client configured and joined to the
+                                gerrytech.com domain.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="screenshot-card">
+
+                    <img src="images/10-domain-login.png"
+                         alt="Active Directory Domain Login"
+                         onclick="openImage(this.src)">
+
+                    <div class="screenshot-caption">
+
+                        <span>10</span>
+
+                        <div>
+                            <h4>Domain Login</h4>
+
+                            <p>
+                                Successful authentication using an Active
+                                Directory domain account.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
         </div>
 
     </div>
@@ -2220,14 +2132,6 @@ domain-joining a Windows client, and testing domain authentication.
 
         event.preventDefault();
 
-        /*
-            Later, put your actual CV in the same folder and name it:
-
-            Gerald-Dube-CV.pdf
-
-            Then this button will download it.
-        */
-
         const cvPath = "Gerald-Dube-CV.pdf";
 
         const link = document.createElement("a");
@@ -2287,10 +2191,42 @@ domain-joining a Windows client, and testing domain authentication.
 
     });
 
-</script>
-<!-- IMAGE VIEWER -->
 
-<div id="imageViewer" class="image-viewer" onclick="closeImage()">
+    /* =========================================================
+       IMAGE VIEWER
+    ========================================================= */
+
+    function openImage(src) {
+
+        document.getElementById("expandedImage").src = src;
+
+        document
+            .getElementById("imageViewer")
+            .classList
+            .add("active");
+
+    }
+
+
+    function closeImage() {
+
+        document
+            .getElementById("imageViewer")
+            .classList
+            .remove("active");
+
+    }
+
+</script>
+
+
+<!-- =============================================================
+     IMAGE VIEWER
+============================================================= -->
+
+<div id="imageViewer"
+     class="image-viewer"
+     onclick="closeImage()">
 
     <button class="image-close"
             onclick="event.stopPropagation(); closeImage()">
@@ -2299,27 +2235,11 @@ domain-joining a Windows client, and testing domain authentication.
 
     <img id="expandedImage"
          src=""
-         alt="Expanded project screenshot"
+         alt="Expanded Windows Server and Active Directory project screenshot"
          onclick="event.stopPropagation()">
 
 </div>
 
-<script>
 
-function openImage(src) {
-
-    document.getElementById("expandedImage").src = src;
-
-    document.getElementById("imageViewer").classList.add("active");
-
-}
-
-function closeImage() {
-
-    document.getElementById("imageViewer").classList.remove("active");
-
-}
-
-</script>
 </body>
 </html>
