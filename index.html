@@ -1287,11 +1287,8 @@
                 </p>
 
 
-                <button class="project-button"
-                        onclick="openProjectModal('adModal')">
-
+                <button class="project-button" type="button" data-modal="adModal">
                     View Project →
-
                 </button>
 
             </article>
@@ -1343,11 +1340,8 @@
                 </p>
 
 
-                <button class="project-button"
-                        onclick="openProjectModal('networkModal')">
-
+                <button class="project-button" type="button" data-modal="networkModal">
                     View Project →
-
                 </button>
 
             </article>
@@ -1399,11 +1393,8 @@
                 </p>
 
 
-                <button class="project-button"
-                        onclick="openProjectModal('linuxModal')">
-
+                <button class="project-button" type="button" data-modal="linuxModal">
                     View Project →
-
                 </button>
 
             </article>
@@ -1603,8 +1594,7 @@
 
     <div class="modal-content">
 
-        <button class="close-modal"
-                onclick="closeProjectModal('adModal')">
+        <button class="close-modal" type="button">
             ×
         </button>
 
@@ -1968,8 +1958,7 @@
 
     <div class="modal-content">
 
-        <button class="close-modal"
-                onclick="closeProjectModal('networkModal')">
+        <button class="close-modal" type="button">
             ×
         </button>
 
@@ -2352,8 +2341,7 @@
 
     <div class="modal-content">
 
-        <button class="close-modal"
-                onclick="closeProjectModal('linuxModal')">
+        <button class="close-modal" type="button">
             ×
         </button>
 
@@ -2709,154 +2697,128 @@
 <!-- =============================================================
      JAVASCRIPT
 ============================================================= -->
-
 <script>
 
-
-    /* =========================================================
-       PROJECT MODALS
-    ========================================================= */
+(function () {
+    "use strict";
 
     function openProjectModal(modalId) {
-
         const modal = document.getElementById(modalId);
-
         if (!modal) {
+            console.error("Project modal not found:", modalId);
             return;
         }
-
         modal.classList.add("show");
-
         document.body.style.overflow = "hidden";
     }
 
-
-    function closeProjectModal(modalId) {
-
-        const modal = document.getElementById(modalId);
-
-        if (!modal) {
-            return;
-        }
-
+    function closeProjectModal(modal) {
+        if (!modal) return;
         modal.classList.remove("show");
-
         document.body.style.overflow = "";
     }
-
-
-    /* =========================================================
-       CLOSE PROJECT MODAL WHEN CLICKING OUTSIDE
-    ========================================================= */
-
-    document.querySelectorAll(".modal").forEach(function(modal) {
-
-        modal.addEventListener("click", function(event) {
-
-            if (event.target === modal) {
-
-                closeProjectModal(modal.id);
-
-            }
-
-        });
-
-    });
-
-
-    /* =========================================================
-       CLOSE MODALS WITH ESCAPE
-    ========================================================= */
-
-    document.addEventListener("keydown", function(event) {
-
-        if (event.key === "Escape") {
-
-            document.querySelectorAll(".modal.show").forEach(function(modal) {
-
-                closeProjectModal(modal.id);
-
-            });
-
-            closeImage();
-
-        }
-
-    });
-
-
-    /* =========================================================
-       NAVIGATION ACTIVE STATE
-    ========================================================= */
-
-    const sections = document.querySelectorAll("section[id]");
-    const navLinks = document.querySelectorAll("nav a");
-
-
-    window.addEventListener("scroll", function() {
-
-        let current = "";
-
-        sections.forEach(function(section) {
-
-            const sectionTop = section.offsetTop - 120;
-
-            if (window.scrollY >= sectionTop) {
-
-                current = section.getAttribute("id");
-
-            }
-
-        });
-
-
-        navLinks.forEach(function(link) {
-
-            link.classList.remove("active");
-
-            if (
-                link.getAttribute("href") === "#" + current
-            ) {
-
-                link.classList.add("active");
-
-            }
-
-        });
-
-    });
-
-
-    /* =========================================================
-       FULL-SCREEN IMAGE VIEWER
-    ========================================================= */
 
     function openImage(src) {
-
         const viewer = document.getElementById("imageViewer");
         const image = document.getElementById("expandedImage");
-
+        if (!viewer || !image) return;
         image.src = src;
-
         viewer.classList.add("active");
-
         document.body.style.overflow = "hidden";
     }
 
-
     function closeImage() {
-
         const viewer = document.getElementById("imageViewer");
-
+        if (!viewer) return;
         viewer.classList.remove("active");
-
         document.body.style.overflow = "";
-
     }
 
+    document.addEventListener("DOMContentLoaded", function () {
+
+        // Project buttons
+        document.querySelectorAll(".project-button[data-modal]").forEach(function (button) {
+            button.addEventListener("click", function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                openProjectModal(button.getAttribute("data-modal"));
+            });
+        });
+
+        // Close buttons
+        document.querySelectorAll(".close-modal").forEach(function (button) {
+            button.addEventListener("click", function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                closeProjectModal(button.closest(".modal"));
+            });
+        });
+
+        // Close by clicking the dark backdrop
+        document.querySelectorAll(".modal").forEach(function (modal) {
+            modal.addEventListener("click", function (event) {
+                if (event.target === modal) {
+                    closeProjectModal(modal);
+                }
+            });
+        });
+
+        // Image viewer close button / backdrop
+        const imageViewer = document.getElementById("imageViewer");
+        if (imageViewer) {
+            imageViewer.addEventListener("click", function (event) {
+                if (event.target === imageViewer) {
+                    closeImage();
+                }
+            });
+        }
+
+        // Navigation active state
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll("nav a");
+
+        window.addEventListener("scroll", function () {
+            let current = "";
+            sections.forEach(function (section) {
+                const sectionTop = section.offsetTop - 120;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach(function (link) {
+                link.classList.remove("active");
+                if (link.getAttribute("href") === "#" + current) {
+                    link.classList.add("active");
+                }
+            });
+        });
+    });
+
+    // Escape closes project modals and image viewer
+    document.addEventListener("keydown", function (event) {
+        if (event.key !== "Escape") return;
+
+        document.querySelectorAll(".modal.show").forEach(function (modal) {
+            closeProjectModal(modal);
+        });
+
+        closeImage();
+    });
+
+    // Keep these functions available for any existing image onclick attributes.
+    window.openImage = openImage;
+    window.closeImage = closeImage;
+    window.openProjectModal = function (modalId) {
+        openProjectModal(modalId);
+    };
+    window.closeProjectModal = function (modalId) {
+        closeProjectModal(document.getElementById(modalId));
+    };
+
+})();
 
 </script>
-
 
 </body>
 </html>
