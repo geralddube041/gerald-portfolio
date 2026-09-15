@@ -1287,7 +1287,7 @@
                 </p>
 
 
-                <button class="project-button" type="button" data-modal="adModal">
+                <button class="project-button" type="button" data-modal="winServerModal">
                     View Project →
                 </button>
 
@@ -1590,7 +1590,7 @@
      WINDOWS SERVER / ACTIVE DIRECTORY MODAL
 ============================================================= -->
 
-<div class="modal" id="adModal">
+<div class="modal" id="winServerModal">
 
     <div class="modal-content">
 
@@ -2698,30 +2698,35 @@
      JAVASCRIPT
 ============================================================= -->
 <script>
-
 (function () {
     "use strict";
 
     function openProjectModal(modalId) {
         const modal = document.getElementById(modalId);
+
         if (!modal) {
             console.error("Project modal not found:", modalId);
             return;
         }
-        modal.classList.add("show");
+
+        /* Open the existing modal without changing its original design. */
+        modal.style.display = "flex";
         document.body.style.overflow = "hidden";
     }
 
     function closeProjectModal(modal) {
         if (!modal) return;
-        modal.classList.remove("show");
+
+        modal.style.display = "none";
         document.body.style.overflow = "";
     }
 
     function openImage(src) {
         const viewer = document.getElementById("imageViewer");
         const image = document.getElementById("expandedImage");
+
         if (!viewer || !image) return;
+
         image.src = src;
         viewer.classList.add("active");
         document.body.style.overflow = "hidden";
@@ -2729,32 +2734,36 @@
 
     function closeImage() {
         const viewer = document.getElementById("imageViewer");
+
         if (!viewer) return;
+
         viewer.classList.remove("active");
         document.body.style.overflow = "";
     }
 
     document.addEventListener("DOMContentLoaded", function () {
 
-        // Project buttons
+        /* Project buttons */
         document.querySelectorAll(".project-button[data-modal]").forEach(function (button) {
             button.addEventListener("click", function (event) {
                 event.preventDefault();
                 event.stopPropagation();
+
                 openProjectModal(button.getAttribute("data-modal"));
             });
         });
 
-        // Close buttons
+        /* Close buttons */
         document.querySelectorAll(".close-modal").forEach(function (button) {
             button.addEventListener("click", function (event) {
                 event.preventDefault();
                 event.stopPropagation();
+
                 closeProjectModal(button.closest(".modal"));
             });
         });
 
-        // Close by clicking the dark backdrop
+        /* Close when clicking the dark backdrop */
         document.querySelectorAll(".modal").forEach(function (modal) {
             modal.addEventListener("click", function (event) {
                 if (event.target === modal) {
@@ -2763,8 +2772,9 @@
             });
         });
 
-        // Image viewer close button / backdrop
+        /* Image viewer */
         const imageViewer = document.getElementById("imageViewer");
+
         if (imageViewer) {
             imageViewer.addEventListener("click", function (event) {
                 if (event.target === imageViewer) {
@@ -2772,52 +2782,30 @@
                 }
             });
         }
-
-        // Navigation active state
-        const sections = document.querySelectorAll("section[id]");
-        const navLinks = document.querySelectorAll("nav a");
-
-        window.addEventListener("scroll", function () {
-            let current = "";
-            sections.forEach(function (section) {
-                const sectionTop = section.offsetTop - 120;
-                if (window.scrollY >= sectionTop) {
-                    current = section.getAttribute("id");
-                }
-            });
-
-            navLinks.forEach(function (link) {
-                link.classList.remove("active");
-                if (link.getAttribute("href") === "#" + current) {
-                    link.classList.add("active");
-                }
-            });
-        });
     });
 
-    // Escape closes project modals and image viewer
+    /* Escape key */
     document.addEventListener("keydown", function (event) {
         if (event.key !== "Escape") return;
 
-        document.querySelectorAll(".modal.show").forEach(function (modal) {
-            closeProjectModal(modal);
+        document.querySelectorAll(".modal").forEach(function (modal) {
+            if (modal.style.display === "flex") {
+                closeProjectModal(modal);
+            }
         });
 
         closeImage();
     });
 
-    // Keep these functions available for any existing image onclick attributes.
+    /* Keep inline onclick image functions available. */
     window.openImage = openImage;
     window.closeImage = closeImage;
-    window.openProjectModal = function (modalId) {
-        openProjectModal(modalId);
-    };
+    window.openProjectModal = openProjectModal;
     window.closeProjectModal = function (modalId) {
         closeProjectModal(document.getElementById(modalId));
     };
 
 })();
-
 </script>
 
 </body>
